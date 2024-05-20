@@ -1,12 +1,13 @@
 {-# LANGUAGE OverloadedStrings #-}
 
-import Network.HTTP.Conduit (simpleHttp)
-import Data.Aeson (eitherDecode, withObject, (.:))
+import Network.HTTP.Conduit (simpleHttp, HttpException)
+import Data.Aeson (eitherDecode, withObject, (.:), FromJSON (parseJSON))
 import Data.Text (Text, unpack)
 import qualified Data.ByteString.Lazy.Char8 as L8
 import Control.Exception (catch)
 import Control.Monad (when)
 import System.IO (hFlush, stdout)
+import Data.Aeson.Types (FromJSON)
 
 -- Define a data type for the API response
 data CityInfo = CityInfo
