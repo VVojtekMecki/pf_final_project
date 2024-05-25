@@ -5,11 +5,8 @@ import Network.HTTP.Client
 import Network.HTTP.Client.TLS
 import Network.HTTP.Types.Status
 import Data.Aeson
--- import Data.Aeson.Types
 import qualified Data.ByteString.Lazy.Char8 as L8
-
--- Define the data structure for JSON parsing
-data City = City
+newtype City = City
     { population :: Int
     } deriving (Show)
 
@@ -17,7 +14,6 @@ instance FromJSON City where
     parseJSON = withObject "City" $ \v -> City
         <$> v .: "population"
 
--- Function to get city population
 getCityPopulation :: String -> IO (Maybe Int)
 getCityPopulation cityName = do
     manager <- newManager tlsManagerSettings
@@ -37,7 +33,6 @@ getCityPopulation cityName = do
             putStrLn $ "Error: " ++ show status ++ " " ++ L8.unpack (responseBody response)
             return Nothing
 
--- Main function
 main :: IO ()
 main = do
     putStrLn "Enter the name of the city: "
