@@ -1,0 +1,9 @@
+Test suite spec: RUNNING...
+
+getCityPopulation
+  returns the population for a known city [v]
+
+Finished in 0.7446 seconds
+1 example, 0 failures
+Test suite spec: PASS
+Test suite logged to: C:\Users\micha\OneDrive\Dokumenty\studia\programowanie-funkcyjne\pf_final_project\cabal-project\dist-newstyle\build\x86_64-windows\ghc-9.4.8\cabal-project-0.1.0.0\t\spec\test\cabal-project-0.1.0.0-spec.log
